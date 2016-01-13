@@ -21,8 +21,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'kaminari'
   spec.add_dependency 'jbuilder'
   spec.add_dependency 'bootstrap-sass'
-  spec.add_dependency 'the_notification'
-  spec.add_dependency 'the_simple_sort',  '~> 0.0.2'
+  spec.add_dependency 'notifications'
+  spec.add_dependency 'simple_sort'
 
   spec.add_dependency 'slim'
   spec.add_dependency 'the_data_role_block_slim'

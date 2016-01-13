@@ -3,32 +3,39 @@ module TheCommentsManager
 
   class Routes
     def self.mixin mapper
-      mapper.resources :comments, only: %w[ edit update ] do
-        mapper.collection do
-          mapper.get :manage
-          mapper.get :my_comments
+      mapper.extend ::TheCommentsManager::DefaultRoutes
+      mapper.send :comments_manager_routes
+    end
+  end
 
-          mapper.get :draft
-          mapper.get :published
-          mapper.get :deleted
-          mapper.get :spam
+  module DefaultRoutes
+    def comments_manager_routes
+      resources :comments, only: %w[ edit update ] do
+        collection do
+          get :manage
+          get :my_comments
 
-          mapper.get :my_draft
-          mapper.get :my_published
-          mapper.get :my_deleted
-          mapper.get :my_spam
+          get :draft
+          get :published
+          get :deleted
+          get :spam
 
-          mapper.get :total_draft
-          mapper.get :total_published
-          mapper.get :total_deleted
-          mapper.get :total_spam
+          get :my_draft
+          get :my_published
+          get :my_deleted
+          get :my_spam
+
+          get :total_draft
+          get :total_published
+          get :total_deleted
+          get :total_spam
         end
 
-        mapper.member do
-          mapper.post   :to_spam
-          mapper.post   :to_draft
-          mapper.post   :to_published
-          mapper.delete :to_deleted
+        member do
+          post   :to_spam
+          post   :to_draft
+          post   :to_published
+          delete :to_deleted
         end
       end
     end
