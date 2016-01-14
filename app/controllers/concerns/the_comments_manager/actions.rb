@@ -8,12 +8,12 @@ module TheCommentsManager
 
     def manage
       @comments = current_user.comcoms.with_users.active.recent.page(params[:page])
-      render view_context.the_comments_template('manage/manage')
+      render template: 'the_comments/manage/manage'
     end
 
     def my_comments
       @comments = current_user.my_comments.with_users.active.recent.page(params[:page])
-      render view_context.the_comments_template('manage/manage')
+      render template: 'the_comments/manage/manage'
     end
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,33 +25,33 @@ module TheCommentsManager
     %w[ draft published deleted ].each do |state|
       define_method state do
         @comments = current_user.comcoms.with_users.with_state(state).recent.page(params[:page])
-        render view_context.the_comments_template('manage/manage')
+        render template: 'the_comments/manage/manage'
       end
 
       define_method "total_#{ state }" do
         @comments = ::Comment.with_state(state).with_users.recent.page(params[:page])
-        render view_context.the_comments_template('manage/manage')
+        render template: 'the_comments/manage/manage'
       end
 
       define_method "my_#{ state }" do
         @comments = current_user.my_comments.with_users.with_state(state).recent.page(params[:page])
-        render view_context.the_comments_template('manage/manage')
+        render template: 'the_comments/manage/manage'
       end
     end
 
     def spam
       @comments = current_user.comcoms.with_users.where(spam: true).recent.page(params[:page])
-      render view_context.the_comments_template('manage/manage')
+      render template: 'the_comments/manage/manage'
     end
 
     def my_spam
       @comments = current_user.my_comments.with_users.where(spam: true).recent.page(params[:page])
-      render view_context.the_comments_template('manage/manage')
+      render template: 'the_comments/manage/manage'
     end
 
     def total_spam
       @comments = ::Comment.where(spam: true).with_users.recent.page(params[:page])
-      render view_context.the_comments_template('manage/manage')
+      render template: 'the_comments/manage/manage'
     end
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,7 +60,7 @@ module TheCommentsManager
 
     def edit
       @comments = current_user.comcoms.where(id: params[:id]).page(params[:page])
-      render view_context.the_comments_template('manage/manage')
+      render template: 'the_comments/manage/manage'
     end
 
     def update
