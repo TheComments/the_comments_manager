@@ -1,11 +1,10 @@
+= render template: 'app/layouts/items/header_footer'
+
 - content_for :title do
   = t "the_comments.management"
 
 - content_for :left_sidebar do
-  = render partial: ('the_comments/manage/sidebar/sidebar')
-
-css:
-  .mr10{ margin-right: 10px; }
+  = render partial: 'the_comments/manage/sidebar/sidebar'
 
 = paginate @comments
 

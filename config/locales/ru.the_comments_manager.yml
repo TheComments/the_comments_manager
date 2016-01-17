@@ -6,10 +6,10 @@ ru:
     for_my_posts:  К моим Постам
     in_system:     В системе
 
-    published_comments: Опубликованные
-    draft_comments:     Черновики
-    deleted_comments:   Удаленные
-    spam_comments:      Спам
+    published_comments_html: "Опубликованные &mdash; %{num}"
+    draft_comments_html:     "Черновики &mdash; %{num}"
+    deleted_comments_html:   "Удаленные &mdash; %{num}"
+    spam_comments_html:      "Спам &mdash; %{num}"
 
     edit:       Правка
     update:     Обновить
