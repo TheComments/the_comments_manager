@@ -1,27 +1,31 @@
-table.table.table-striped.table-hover@comment_body
-  tr
-    td  style="width:120px"
-      b= comment.commentable_type
-      '
-      | &rarr;
-    td
-      = link_to comment.commentable_title, comment.commentable_url
-      '
-      | (#{ comment.try(:commentable_state) })
-  tr
-    td
-      b= t('the_comments.title')
-    td
-      - if comment.try(:user)
-        = link_to comment.user_name, comment.user
-      - else
-        = comment.header_title
-  tr
-    td
-      b= t('the_comments.contacts')
-    td= comment.contacts
-  tr.success
-    td
-      b= t('the_comments.content')
-    td(style='word-break:break-all')= raw comment.content
+.ptz--table.ptz--table-0.w100p.fs15@comment_body
+  .ptz--tbody
+    .ptz--tr
+      .ptz--td.p10
+        .b= t('the_comments.commentable')
+      .ptz--td.p10.w100p
+        span.mr15.u
+          = comment.commentable_type
+          |:
+        = link_to comment.commentable_title, comment.commentable_url
+        '
+        | (#{ comment.try(:commentable_state) })
+
+    .ptz--tr
+      .ptz--td.p10
+        b= t('the_comments.title')
+      .ptz--td.p10
+        - if comment.try(:user)
+          = link_to comment.user_name, comment.user
+        - else
+          = comment.header_title
+
+    .ptz--tr
+      .ptz--td.p10
+        b= t('the_comments.contacts')
+      .ptz--td.p10= comment.contacts
+    .ptz--tr
+      .ptz--td.p10
+        b= t('the_comments.content')
+      .ptz--td.p10= raw comment.content
 

@@ -1,4 +1,5 @@
 = render template: 'app/layouts/items/header_footer'
+= render template: 'rails_blog/pubs/colored_code_css'
 
 - content_for :title do
   = t "the_comments.management"
@@ -8,11 +9,13 @@
 
 = paginate @comments
 
-- if @comments.blank?
-  .alert.alert-info= t 'the_comments.no_comments_here'
-
-.app--div-0.mt20.mb20
+.app--div-0.mt20.mb20.w800
   .m20
+
+    - if @comments.blank?
+      .fs18= t 'the_comments.no_comments'
+
+
     .comments@comments
       - @comments.each do |comment|
         = render partial: ('the_comments/manage/comment/comment'), locals: { comment: comment }

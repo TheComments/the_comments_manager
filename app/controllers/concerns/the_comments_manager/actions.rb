@@ -68,7 +68,7 @@ module TheCommentsManager
     def update
       comment = ::Comment.find(params[:id])
       comment.update_attributes!(patch_comment_params)
-      render(layout: false, partial: view_context.('the_comments/manage/comment/body'), locals: { comment: comment })
+      render(layout: false, partial: 'the_comments/manage/comment/body', locals: { comment: comment })
     end
 
     %w[ draft published deleted ].each do |state|
