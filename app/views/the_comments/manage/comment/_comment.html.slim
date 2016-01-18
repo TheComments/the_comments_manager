@@ -1,7 +1,7 @@
 - klass = { published: :success, draft: :info, deleted: :danger }[comment.state.to_sym]
 
 .ptz--theme-0
-  .mb100(class="the_comments--#{ klass }")
+  .mb100@panel(class="the_comments--#{ klass }")
     .fs16.mb10= comment.header_title
     @panel-body
       = render partial: ('the_comments/manage/comment/body'), locals: { comment: comment }

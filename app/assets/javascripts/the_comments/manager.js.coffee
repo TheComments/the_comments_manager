@@ -1,6 +1,7 @@
 @TheCommentsManager = do ->
   init: ->
-    hide_comment_panel = (btn) -> $(btn).parents('@panel').slideUp()
+    hide_comment_panel = (btn) ->
+      $(btn).parents('@panel').slideUp()
 
     comments = $ '@comments'
 
