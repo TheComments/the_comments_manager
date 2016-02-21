@@ -2,11 +2,9 @@
 
 .ptz--theme-0
   .mb100@panel(class="the_comments--#{ klass }")
-    .fs16.mb10= comment.header_title
-    @panel-body
-      = render partial: ('the_comments/manage/comment/body'), locals: { comment: comment }
+    = render partial: ('the_comments/manage/comment/body'), locals: { comment: comment }
 
-      - if current_user.comments_admin?
-        = render partial: ('the_comments/manage/comment/edit_form'), locals: { comment: comment }
-        = render partial: ('the_comments/manage/comment/controls'),  locals: { comment: comment }
-        = render partial: ('the_comments/manage/comment/info'),      locals: { comment: comment }
+    - if current_user.comments_admin?
+      = render partial: ('the_comments/manage/comment/edit_form'), locals: { comment: comment }
+      = render partial: ('the_comments/manage/comment/controls'),  locals: { comment: comment }
+      = render partial: ('the_comments/manage/comment/info'),      locals: { comment: comment }

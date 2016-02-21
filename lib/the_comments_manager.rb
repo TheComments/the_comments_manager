@@ -5,7 +5,6 @@ require "the_comments_manager/version"
 require 'slim'
 require 'jbuilder'
 require 'kaminari'
-require 'bootstrap-sass'
 require 'simple_sort'
 require 'notifications'
 

@@ -7,17 +7,17 @@
 - content_for :left_sidebar do
   = render partial: 'the_comments/manage/sidebar/sidebar'
 
-= paginate @comments
-
 .app--div-0.mt20.mb20.w800
-  .m20
+  .m20.ptz--theme-0
+    = render template: 'common/paginator', locals: { items: @comments }
 
+  .m20
     - if @comments.blank?
       .fs18= t 'the_comments.no_comments'
 
-
     .comments@comments
       - @comments.each do |comment|
-        = render partial: ('the_comments/manage/comment/comment'), locals: { comment: comment }
+        = render partial: 'the_comments/manage/comment/comment', locals: { comment: comment }
 
-  .m20= paginate @comments
+  .m20.ptz--theme-0
+    = render template: 'common/paginator', locals: { items: @comments }

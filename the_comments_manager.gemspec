@@ -20,13 +20,10 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'kaminari'
   spec.add_dependency 'jbuilder'
-  spec.add_dependency 'bootstrap-sass'
-  spec.add_dependency 'notifications'
   spec.add_dependency 'simple_sort'
+  spec.add_dependency 'notifications'
 
   spec.add_dependency 'slim'
-  spec.add_dependency 'the_data_role_block_slim'
-  spec.add_dependency 'the_data_role_block_jquery'
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
