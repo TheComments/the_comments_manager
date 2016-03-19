@@ -21,6 +21,7 @@ ru:
 
     edit:       Правка
     update:     Обновить
+    delete_confirm: "Хотите удалить комментарий?"
 
     to_draft:     В Черновики
     to_spam:      В Спам

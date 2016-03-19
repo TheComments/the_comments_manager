@@ -1,29 +1,29 @@
 @TheCommentsManager = do ->
   init: ->
     hide_comment_panel = (btn) ->
-      $(btn).parents('@panel').slideUp()
+      $(btn).parents('.js--comments--panel').slideUp()
 
-    comments = $ '@comments'
+    comments = $ '.js--comments'
 
     # CONTROLS
-    comments.on 'click', '@comment_info_btn', ->
+    comments.on 'click', '.js--comments--comment-info-btn', ->
       btn    = $ @
-      holder = btn.parents('@panel-body')
-      holder.find('@comment_info').slideToggle()
+      holder = btn.parents('.js--comments--panel')
+      holder.find('.js--comments--comment-info').slideToggle()
       false
 
-    comments.on 'click', '@comment_edit', ->
+    comments.on 'click', '.js--comments--comment-edit', ->
       btn    = $ @
-      holder = btn.parents('@panel-body')
-      holder.find('@comment_edit_form, @comment_body, @comment_edit').toggle()
+      holder = btn.parents('.js--comments--panel')
+      holder.find('.js--comments--edit-form, .js--comments--comment-body, .js--comments--comment-edit').toggle()
       false
 
-    comments.on 'ajax:success', '@to_published, @to_draft, @to_spam, @to_deleted', ->
+    comments.on 'ajax:success', '.js--comments--to-published, .js--comments--to-draft, .js--comments--to-spam, .js--comments--to-deleted', ->
       hide_comment_panel @
 
     # Edit form
-    comments.on 'ajax:success', '@comment_edit_form', (request, response, status) ->
+    comments.on 'ajax:success', '.js--comments--edit-form', (request, response, status) ->
       form   = $ @
-      holder = form.parents('@panel-body')
-      holder.find('@comment_edit_form, @comment_body, @comment_edit').toggle()
-      holder.find('@comment_body').replaceWith response
+      holder = form.parents('.js--comments--panel')
+      holder.find('.js--comments--edit-form, .js--comments--comment-body, .js--comments--comment-edit').toggle()
+      holder.find('.js--comments--comment-body').replaceWith response
