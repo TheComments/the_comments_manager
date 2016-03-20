@@ -45,3 +45,10 @@
         b= t('the_comments.content')
       .ptz--td.p10.vat= raw comment.content
 
+    .ptz--tr
+      .ptz--td.p10.b
+        | Дата:
+      .ptz--td.p10
+        .fs12.mb10
+          - date = comment.created_at
+          = raw I18n.l(date, format: raw("%-d %B %Y %H:%M"))
