@@ -1,10 +1,20 @@
 .ptz--table.ptz--table-0.w100p.fs15
   .ptz--tbody
-    .ptz--tr
-      .ptz--td.p10
-        | Тема:
-      .ptz--td.p10
-        .fs16.mb10= comment.header_title
+    - if user = comment.user
+      .ptz--tr
+        .ptz--td.p10
+          = link_to user, class: 'iblock' do
+            = image_tag comment.avatar_url, class: 'the_comments--userpic w50'
+
+        .ptz--td.p10.vam
+          = link_to user do
+            = comment.header_title
+    - else
+      .ptz--tr
+        .ptz--td.p10
+          | Тема:
+        .ptz--td.p10
+          .fs16.mb10= comment.header_title
 
     .ptz--tr
       .ptz--td.p10
