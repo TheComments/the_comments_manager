@@ -13,7 +13,7 @@
         span.mr15.u
           = comment.commentable_type
           |:
-        = link_to comment.commentable_title, comment.commentable_url
+        = link_to comment.commentable_title, [comment.commentable_url, "comment_#{ comment.anchor }"].join('#')
         '
         | (#{ comment.try(:commentable_state) })
 
@@ -33,5 +33,5 @@
     .ptz--tr
       .ptz--td.p10
         b= t('the_comments.content')
-      .ptz--td.p10= raw comment.content
+      .ptz--td.p10.vat= raw comment.content
 
