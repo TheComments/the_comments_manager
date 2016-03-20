@@ -18,7 +18,8 @@
       holder.find('.js--comments--edit-form, .js--comments--comment-body, .js--comments--comment-edit').toggle()
       false
 
-    comments.on 'ajax:success', '.js--comments--to-published, .js--comments--to-draft, .js--comments--to-spam, .js--comments--to-deleted', ->
+    comments.on 'ajax:success', '.js--comments--to-published, .js--comments--to-draft, .js--comments--to-spam, .js--comments--to-deleted', (request, response, status) ->
+      JODY.processor(response)
       hide_comment_panel @
 
     # Edit form

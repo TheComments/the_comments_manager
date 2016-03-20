@@ -73,16 +73,27 @@ module TheCommentsManager
 
     %w[ draft published deleted ].each do |state|
       define_method "to_#{ state }" do
-        ::Comment.find(params[:id]).try "to_#{ state }"
-        render nothing: true
+        @comment = ::Comment.find(params[:id])
+        @comment.try "to_#{ state }"
+
+        # hot fix to get actual counters values | it will be better to fix
+        current_user.recalculate_comcoms_counters!
+        current_user.update_comcoms_spam_counter
+
+        render template: 'the_comments/manage/state_changed.json.jbuilder', layout: false
       end
     end
 
     def to_spam
-      comment = ::Comment.find(params[:id])
-      comment.to_deleted
-      comment.mark_as_spam
-      render nothing: true
+      @comment = ::Comment.find(params[:id])
+      @comment.to_deleted
+      @comment.mark_as_spam
+
+      # hot fix to get actual counters values | it will be better to fix
+      current_user.recalculate_comcoms_counters!
+      current_user.update_comcoms_spam_counter
+
+      render template: 'the_comments/manage/state_changed.json.jbuilder', layout: false
     end
   end
 end

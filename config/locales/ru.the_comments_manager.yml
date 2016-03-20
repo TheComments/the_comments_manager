@@ -14,10 +14,10 @@ ru:
 
     no_comments: Нет комментариев
 
-    published_comments_html: "Опубликованные &mdash; %{num}"
-    draft_comments_html:     "Черновики &mdash; %{num}"
-    deleted_comments_html:   "Удаленные &mdash; %{num}"
-    spam_comments_html:      "Спам &mdash; %{num}"
+    published_comments_html: "Опубликованные &mdash; "
+    draft_comments_html:     "Черновики &mdash; "
+    deleted_comments_html:   "Удаленные &mdash; "
+    spam_comments_html:      "Спам &mdash; "
 
     edit:       Правка
     update:     Обновить
