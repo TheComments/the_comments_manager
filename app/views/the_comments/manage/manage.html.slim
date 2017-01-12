@@ -8,7 +8,7 @@
   = render partial: 'the_comments/manage/sidebar/sidebar'
 
 .app--div-0.mt20.mb20.w800
-  .m20.ptz--theme-0
+  .m20.ptz_theme-0
     = render template: 'common/paginator', locals: { items: @comments }
 
   .m20
@@ -19,5 +19,5 @@
       - @comments.each do |comment|
         = render partial: 'the_comments/manage/comment/comment', locals: { comment: comment }
 
-  .m20.ptz--theme-0
+  .m20.ptz_theme-0
     = render template: 'common/paginator', locals: { items: @comments }

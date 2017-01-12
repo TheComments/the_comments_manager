@@ -1,5 +1,5 @@
 .js--comments--panel(class="the_comments--state--#{ comment.state.to_sym }")
-  .ptz--theme-0
+  .ptz_theme-0
     .js--comments--comment-body= render partial: ('the_comments/manage/comment/body'), locals: { comment: comment }
 
     - if current_user.comments_admin?
